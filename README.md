@@ -20,7 +20,7 @@ EventHub — це вебзастосунок, що дозволяє корист
 
 Інструкція для налаштування середовища:
 1. Клонувати репозиторій:
-    git clone https://github.com/gomenyukksenia/EventHub.git
+    git clone https://github.com/SvirinaDasha/Test_EventHub.git
 2. Перейти до директорії проєкту:
    cd django-event-hub
 3. Створити Virtual Environment:
