@@ -19,6 +19,7 @@ from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.contrib.auth import update_session_auth_hash
 from django.contrib import messages
+from django.http import HttpResponseForbidden
 
 from django.shortcuts import render
 from .models import (
@@ -105,6 +106,11 @@ class EventCreateView(LoginRequiredMixin, CreateView):
     template_name = 'events/create_event.html'
     success_url = reverse_lazy('event-list')
 
+    def dispatch(self, request, *args, **kwargs):
+        if request.user.userprofile.role == 'student':
+            return HttpResponseForbidden("Students can't create events")
+        return super().dispatch(request, *args, **kwargs)
+
     def form_valid(self, form):
         evt = form['event'].save()
         event_image = form['event_image'].save(commit=False)
@@ -116,7 +122,6 @@ class EventCreateView(LoginRequiredMixin, CreateView):
         event_agenda.save()
 
         return super().form_valid(form)
-    
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         
