@@ -1,41 +1,48 @@
-EventHub — платформа для організації подій 
+EventHub — Event Management Platform
+Project Overview
+EventHub is a web application designed to help users organize and discover events. The platform focuses on leisure and educational activities, such as movie screenings, board game nights, student meetups, and more. It simplifies the process of event planning and community building through an intuitive user interface.
 
-Опис проєкту: 
-EventHub — це вебзастосунок, що дозволяє користувачам створювати та 
-знаходити події, пов’язані з дозвіллям і навчанням, зокрема кіноперегляди, 
-настільні ігри, студентські зустрічі тощо. 
+Tech Stack
+Framework: Django (Python)
 
-Основний функціонал з планом: 
-- реєстрація та вхід користувачів; 
-- створення подій із зазначенням назви, опису, дати, часу, місця та 
-максимальної кількості учасників; 
-- перегляд списку учасників події; 
-- персональна сторінка користувача з переліком подій, які він забронював 
-брав участь або які вподобав. 
-- бронювання квитків 
-- фільтрація подій за категорією, датою, форматом;
+Database: SQLite (default) / PostgreSQL support
 
-Можливе подальше розширення функціоналу.
+Environment: Python Virtual Environment
+
+Core Features
+User Authentication: Secure registration and login system.
+
+Event Creation: Organize events by specifying the title, description, date, time, location, and maximum participant capacity.
+
+Participant Management: View a real-time list of attendees for each event.
+
+Personalized Dashboard: A dedicated user profile page to manage booked tickets, track participation history, and view "liked" events.
+
+Booking System: Integrated ticket booking functionality.
+
+Smart Filtering: Quickly find events by category, date, or format (online/offline).
+
+Future Scalability: Designed with a modular architecture to allow for further feature expansions.
 
 
-Інструкція для налаштування середовища:
-1. Клонувати репозиторій:
+Setup Instructions
+Follow these steps to set up the development environment locally:
+1. Clone the repository:
     git clone https://github.com/SvirinaDasha/Test_EventHub.git
-2. Перейти до директорії проєкту:
+2. Navigate to the project directory:
    cd django-event-hub
-3. Створити Virtual Environment:
+3. Create a virtual environment:
    python3 -m venv env
-4. Активувати Virtual Environment:
+4. Activate the virtual environment:
    For Windows: .\env\Scripts\activate
-5. Встановити requirements.txt:
+5.Install dependencies from requirements.txt:
    pip install -r requirements.txt
-6. Додати базу даних:
+6.Apply database migrations:
    python manage.py migrate
-7. Створити Super User: 
+7.Create a Superuser:
    python manage.py createsuperuser
-   Користувач за замовчуванням (username: admin, password: admin) вже існує
-   Необхідно створити нового користувача з іншим іменем.
-8. Запустити проєкт:
+  Note: A default user (username: admin, password: admin) may already exist in the database. It is recommended to create a new user with a unique name for your local setup.
+8. Run the development server:
    python manage.py runserver
 
 
